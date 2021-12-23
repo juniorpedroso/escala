@@ -4,29 +4,50 @@
 
 <p>Plantões</p>
 
-<ul>
+<table style='width:100%', border="1">
+    <caption>Plantão Permanente de Avaré</caption>
+    <tr>
+        <th>Dia</th>
+        <th>Delegado</th>
+        <th>Del apoio</th>
+        <th>Escrivão</th>
+        <th>Escriv 2</th>
+        <th>Escr. ref.</th>
+        <th>Operac.</th>
+        <th>Oper. ref.</th>
+        <th>Delegado</th>
+        <th>Del apoio</th>
+        <th>Escrivão</th>
+        <th>Esc. ref.</th>
+        <th>Operac.</th>
+        <th>Operac. 2</th>
+        <th>Operac. ref.</th>
+    </tr>
+    
     {% for plantao in plantoes %}
-    <li>{{ plantao }} 
-        {{ plantao.delegado_dia }}
-        {{ plantao.del_apoio_dia }}
-        {{ plantao.escriva1_dia }}
-        {{ plantao.escriva2_dia }}
-        {{ plantao.esc_ref_dia }}
-        {{ plantao.operacional_dia }}
-        {{ plantao.oper_ref_dia }}
+  
+    <tr>
+        <td>{{ plantao }}</td>
+        <td>{{ plantao.delegado_dia }}</td>
+        <td>{{ plantao.del_apoio_dia }}</td>
+        <td>{{ plantao.escriva1_dia }}</td>
+        <td>{{ plantao.escriva2_dia }}</td>
+        <td>{{ plantao.esc_ref_dia }}</td>
+        <td>{{ plantao.operacional_dia }}</td>
+        <td>{{ plantao.oper_ref_dia }}</td>
 
-        {{ plantao.delegado_noite }}
-        {{ plantao.del_apoio_noite }}
-        {{ plantao.escrivao_noite }}
-        {{ plantao.esc_ref_noite }}
-        {{ plantao.operacional1_noite }}
-        {{ plantao.operacional2_noite }}
-        {{ plantao.oper_ref_noite }}
+        <td>{{ plantao.delegado_noite }}</td>
+        <td>{{ plantao.del_apoio_noite }}</td>
+        <td>{{ plantao.escrivao_noite }}</td>
+        <td>{{ plantao.esc_ref_noite }}</td>
+        <td>{{ plantao.operacional1_noite }}</td>
+        <td>{{ plantao.operacional2_noite }}</td>
+        <td>{{ plantao.oper_ref_noite }}</td>
+    </tr>
 
-    </li>
     {% empty %}
     <li>Nenhum plantao foi adicionado ainda.</li>
     {% endfor %}
-</ul>
+</table>
 
 {% endblock content %}

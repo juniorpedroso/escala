@@ -41,4 +41,4 @@ class Plantao(models.Model):
         verbose_name_plural = 'Plantões'
 
     def __str__(self):
-        return f'Plantão de {self.data_plantao}'
+        return f'{self.data_plantao}'
