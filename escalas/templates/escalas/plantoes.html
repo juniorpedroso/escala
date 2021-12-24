@@ -2,48 +2,84 @@
 
 {% block content %}
 
+<style>
+    table {
+        border-collapse: collapse;
+        border: 3px solid rgb(100, 130, 40);
+        width: 100%;
+    }
+
+    tbody {
+        font-size: 90%;
+        font-style: italic;
+        letter-spacing: 1px;
+    }
+
+    tfoot {
+        font-weight: bold;
+        font-size: 75%;
+    }
+
+    thead {
+        color: darkblue;
+    }
+
+    td {
+        text-align: center;
+        border: 1px solid rgb(100, 130, 40);
+    }
+</style>
+
 <p>Plantões</p>
 
-<table style='width:100%', border="1">
+<table>
     <caption>Plantão Permanente de Avaré</caption>
-    <tr>
-        <th>Dia</th>
-        <th>Delegado</th>
-        <th>Del apoio</th>
-        <th>Escrivão</th>
-        <th>Escriv 2</th>
-        <th>Escr. ref.</th>
-        <th>Operac.</th>
-        <th>Oper. ref.</th>
-        <th>Delegado</th>
-        <th>Del apoio</th>
-        <th>Escrivão</th>
-        <th>Esc. ref.</th>
-        <th>Operac.</th>
-        <th>Operac. 2</th>
-        <th>Operac. ref.</th>
-    </tr>
-    
-    {% for plantao in plantoes %}
-  
-    <tr>
-        <td>{{ plantao }}</td>
-        <td>{{ plantao.delegado_dia }}</td>
-        <td>{{ plantao.del_apoio_dia }}</td>
-        <td>{{ plantao.escriva1_dia }}</td>
-        <td>{{ plantao.escriva2_dia }}</td>
-        <td>{{ plantao.esc_ref_dia }}</td>
-        <td>{{ plantao.operacional_dia }}</td>
-        <td>{{ plantao.oper_ref_dia }}</td>
+    <thead>
+        <tr>
+            <th>Dia</th>
+            <th>Delegado</th>
+            <th>Del apoio</th>
+            <th>Escrivão</th>
+            <th>Escriv 2</th>
+            <th>Escr. ref.</th>
+            <th>Operac.</th>
+            <th>Oper. ref.</th>
+            <th>Delegado</th>
+            <th>Del apoio</th>
+            <th>Escrivão</th>
+            <th>Esc. ref.</th>
+            <th>Operac.</th>
+            <th>Operac. 2</th>
+            <th>Operac. ref.</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan='15'>Escala de Avaré</td>
+        </tr>
+    </tfoot>
 
-        <td>{{ plantao.delegado_noite }}</td>
-        <td>{{ plantao.del_apoio_noite }}</td>
-        <td>{{ plantao.escrivao_noite }}</td>
-        <td>{{ plantao.esc_ref_noite }}</td>
-        <td>{{ plantao.operacional1_noite }}</td>
-        <td>{{ plantao.operacional2_noite }}</td>
-        <td>{{ plantao.oper_ref_noite }}</td>
-    </tr>
+    {% for plantao in plantoes %}
+    <tbody>
+        <tr>
+            <td>{{ plantao }}</td>
+            <td>{{ plantao.delegado_dia }}</td>
+            <td>{{ plantao.del_apoio_dia }}</td>
+            <td>{{ plantao.escriva1_dia }}</td>
+            <td>{{ plantao.escriva2_dia }}</td>
+            <td>{{ plantao.esc_ref_dia }}</td>
+            <td>{{ plantao.operacional_dia }}</td>
+            <td>{{ plantao.oper_ref_dia }}</td>
+
+            <td>{{ plantao.delegado_noite }}</td>
+            <td>{{ plantao.del_apoio_noite }}</td>
+            <td>{{ plantao.escrivao_noite }}</td>
+            <td>{{ plantao.esc_ref_noite }}</td>
+            <td>{{ plantao.operacional1_noite }}</td>
+            <td>{{ plantao.operacional2_noite }}</td>
+            <td>{{ plantao.oper_ref_noite }}</td>
+        </tr>
+    </tbody>
 
     {% empty %}
     <li>Nenhum plantao foi adicionado ainda.</li>
