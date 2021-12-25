@@ -1,0 +1,13 @@
+{% extends "escalas/base.html" %}
+
+{% block content %}
+
+<p>Incluir novo plantão:</p>
+
+<form action="{% url 'escalas:novo_plantao' %}" method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button name="submit">Incluir plantão</button>
+</form>
+
+{% endblock content %}
