@@ -5,9 +5,11 @@
     {% if user.is_authenticated %}
 
     Olá, {{ user.username }}.
+    <a href="{% url 'usuarios:logout' %}">Log out</a>
 
     {% else %}
 
+    <a href="{% url 'usuarios:register' %}">Cadastro</a>
     <a href="{% url 'usuarios:login' %}">Log in</a>
 
     {% endif %}
