@@ -1,4 +1,4 @@
-{% extends 'escalas/base.html' %}
+{% extends "escalas/base.html" %}
 
 {% block content %}
 
@@ -11,7 +11,7 @@
     {{ form.as_p }}
 
     <button name="submit">Log in</button>
-    <input type="hidden" name="text" value="{% url 'escalas:index' %}" />
+    <input type="hidden" name="next" value="{% url 'escalas:index' %}" />
 </form>
 
 {% endblock content %}
