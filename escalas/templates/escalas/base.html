@@ -1,6 +1,11 @@
 <p>
-    <a href="{% url 'escalas:index' %}">Escala</a>
-    <a href="{% url 'escalas:plantoes' %}">Plantoes</a>
+    <a href="{% url 'escalas:index' %}">Escala</a> -
+    <a href="{% url 'escalas:plantoes' %}">Plantoes</a> -
+    {% if user.is_authenticated %}
+        Olá, {{ user.username }}.
+    {% else %}
+        <a href="{% 'usuarios:login' %}">Log in</a>
+    {% endif %}
 
 </p>
 
