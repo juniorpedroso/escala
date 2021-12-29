@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 from .models import Plantao
 from .forms import PlantaoForm
-
-# Create your views here.
 
 
 def index(request):
@@ -11,6 +10,7 @@ def index(request):
     return render(request, 'escalas/index.html')
 
 
+@login_required
 def plantoes(request):
     '''Mostra todos os plantões.'''
     plantoes = Plantao.objects.order_by('data_plantao')
@@ -18,6 +18,7 @@ def plantoes(request):
     return render(request, 'escalas/plantoes.html', context)
 
 
+@login_required
 def novo_plantao(request):
     '''Adiciona um novo plantão.'''
     if request.method != 'POST':
