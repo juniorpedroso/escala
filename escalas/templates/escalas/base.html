@@ -30,7 +30,7 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                {% if user.if_authenticated %}
+                {% if user.is_authenticated %}
                 <li class="nav-item">
                     <span class="navbar-text">Olá, {{ user.username }}.</span>
                 </li>
