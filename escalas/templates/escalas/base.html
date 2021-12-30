@@ -1,19 +1,66 @@
-<p>
-    <a href="{% url 'escalas:index' %}">Escala</a> -
-    <a href="{% url 'escalas:plantoes' %}">Plantoes</a> -
+{% load bootstrap4 %}
 
-    {% if user.is_authenticated %}
+<!DOCTYPE html>
+<html lang="en">
 
-    Olá, {{ user.username }}.
-    <a href="{% url 'usuarios:logout' %}">Log out</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
+    <title>Escalas</title>
 
-    {% else %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
 
-    <a href="{% url 'usuarios:register' %}">Cadastro</a>
-    <a href="{% url 'usuarios:login' %}">Log in</a>
+</head>
 
-    {% endif %}
+<body>
 
-</p>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
 
-{% block content %}{% endblock content %}
+        <a class="navbar-brand" href="{% url 'escalas:index'%}">Escalas</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'escalas:plantoes'%}">Plantoes</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                {% if user.if_authenticated %}
+                <li class="nav-item">
+                    <span class="navbar-text">Olá, {{ user.username }}.</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'usuarios:logout' %}">Log out</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'usuarios:register' %}">Cadastro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'usuarios:login' %}">Log in</a>
+                </li>
+                {% endif %}
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <main role="main" class="container">
+        <div class="pb-2 mb-2 border-bottom">
+            {% block page_header %}{% endblock page_header %}
+        </div>
+        <div>
+            {% block content %}{% endblock content %}
+        </div>
+    </main>
+
+</body>
+
+</html>
