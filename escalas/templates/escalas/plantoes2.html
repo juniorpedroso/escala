@@ -1,0 +1,63 @@
+{% extends "escalas/base.html" %}
+
+{% block content %}
+
+<p>Plantões</p>
+
+<table class="table table-bordered">
+    <caption>Plantão Permanente de Avaré</caption>
+    <thead>
+        <tr>
+            <th scope="col">Dia</th>
+            <th scope="col">Delegado</th>
+            <th scope="col">Del apoio</th>
+            <th scope="col">Escrivão</th>
+            <th scope="col">Escriv 2</th>
+            <th scope="col">Escr. ref.</th>
+            <th scope="col">Operac.</th>
+            <th scope="col">Oper. ref.</th>
+            <th scope="col">Delegado</th>
+            <th scope="col">Del apoio</th>
+            <th scope="col">Escrivão</th>
+            <th scope="col">Esc. ref.</th>
+            <th scope="col">Operac.</th>
+            <th scope="col">Operac. 2</th>
+            <th scope="col">Operac. ref.</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan='15'>Escala de Avaré</td>
+        </tr>
+    </tfoot>
+
+    {% for plantao in plantoes %}
+    <tbody>
+        <tr>
+            <td>plantao.data_plantao</td>
+            <td>plantao.delegado_dia</td>
+            <td>plantao.del_apoio_dia</td>
+            <td>plantao.escriva1_dia</td>
+            <td>plantao.escriva2_dia</td>
+            <td>plantao.esc_ref_dia</td>
+            <td>plantao.operacional_dia</td>
+            <td>plantao.oper_ref_dia</td>
+
+            <td>plantao.delegado_noite</td>
+            <td>plantao.del_apoio_noite</td>
+            <td>plantao.escrivao_noite</td>
+            <td>plantao.esc_ref_noite</td>
+            <td>plantao.operacional1_noite</td>
+            <td>plantao.operacional2_noite</td>
+            <td>plantao.oper_ref_noite</td>
+        </tr>
+    </tbody>
+
+    {% empty %}
+    <li>Nenhum plantao foi adicionado ainda.</li>
+    {% endfor %}
+</table>
+
+<a href="{% url 'escalas:novo_plantao' %}">Incluir novo plantão</a>
+
+{% endblock content %}
