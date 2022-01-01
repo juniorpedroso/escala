@@ -1,7 +1,14 @@
 {% extends "escalas/base.html" %}
 
-{% block content %}
+{% block page_header %}
+<div class="jumbotron">
+    <h1 class="display-3">Escala de Plantões de Avaré</h1>
 
-<p>Escala mostra os plantões com suas equipes ao longo do mês.</p>
+    <p class='lead'>Visualização das escalas de todos os funcionários. Acesso permitido somente a pessoas autorizadas.
+    </p>
 
-{% endblock content %}
+    <a class="btn btn-lg btn-primary" href="{% url 'usuarios:register' %}" role="button">Cadastro &raquo;</a>
+
+</div>
+
+{% endblock page_header %}
